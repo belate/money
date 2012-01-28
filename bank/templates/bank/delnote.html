@@ -1,0 +1,9 @@
+{% extends "bank/base.html" %}
+{% block title %}Delete note{% endblock %}
+{% block content %}
+    <h1>Delete note</h1>
+    <form action='' method='post'>
+        {% csrf_token %}
+        <input type="submit" value="Delete" />
+    </form>
+{% endblock %}

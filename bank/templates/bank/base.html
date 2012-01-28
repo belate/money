@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}My Money{% endblock %}</title>
+        <meta name="description" content="My first django project">
+        <meta name="author" content="Belatona">
+        <style type="text/css">
+            .w70 { width:70px; }
+            .w80 { width:80px; }
+            .w90 { width:90px; }
+            .w100 { width:100px; }
+            .w200 { width:200px; }
+            .w300 { width:300px; }
+            .w400 { width:400px; }
+            .red { color:red; }
+            .green { color:green; }
+            .center { text-align:center; }
+            table {
+                    font-family:'Verdana', Geneva, sans-serif;
+                    font-size:0.75em; {% comment %} 12px/16=0.75em {% endcomment %}              
+                    }
+            input, label, h1 {font-family:'Verdana', Geneva, sans-serif;}
+            
+        </style>
+    </head>
+    <body>
+       {% block content %}{% endblock %}
+    </body>
+</html>

@@ -1,0 +1,32 @@
+{% extends "bank/base.html" %}
+{% block title %}Banks{% endblock %}
+{% block content %}
+    <h1>My Accounts</h1>
+    <table>
+        <colgroup>
+            <col class='w200 center' />
+            <col class='w300 center' />
+            <col class='w100 center' />
+        </colgroup>
+        <tr>
+            <td><b><u>Bank</u></b></td>
+            <td><b><u>Number</u></b></td>
+            <td><b><u>Balance</u></b></td>
+        </tr>
+        {% for account in accounts %}
+        <tr>
+            <td>{{account.bank}}</td>
+            <td>
+                <a href='/account/{{account.id}}'>{{account.number}}</a>
+            </td>
+            <td>{{account.balance}}€</td>
+        </tr>        
+        {% endfor %}
+        <tr><td colspan="4"><hr /></td></tr>
+        <tr>
+            <td><a href='/account/addaccount'>New account</a></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+{% endblock %}

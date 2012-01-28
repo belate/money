@@ -1,0 +1,55 @@
+{% extends "bank/base.html" %}
+{% block title %}Account{% endblock %}
+{% block content %}
+    <h1>Notes</h1>
+    <div>        
+        <form action='' method='get'>
+            <label>Look up note:</label>
+            <input id='q' type='text' name='q' />
+            <input type='submit' value='Go' />
+        </form>        
+    <div> 
+    <br />
+    <table>
+        <colgroup>
+            <col class='w90 center' />
+            <col class='w200 center' />
+            <col class='w400 center' />
+            <col class='w100 center' />
+            <col class='w100 center' />
+        </colgroup>
+        <tr>
+            <td><b><u>Date</u></b></td>
+            <td><b><u>Category</u></b></td>
+            <td><b><u>Description</u></b></td>
+            <td><b><u>Amount</u></b></td>
+            {% comment %} <td><b><u>Balance</u></b></td> {% endcomment%}     
+        </tr>
+        {% for note in notes %}
+        <tr>
+            <td>{{ note.timestamp|date:"d-m-Y" }}</td>                
+            <td>{{ note.category }}</td>
+            <td>{{ note.description }}</td>            
+            {% if note.is_expense %}
+            <td class='red'>{{ note.amount }}€</td>
+            {% else %}
+            <td class='green'>{{ note.amount }}€</td>
+            {% endif %}            
+            {% comment %} <td>1000000€</td> {% endcomment%}
+            <td><a href='{% url delnote account.id note.id %}'>Delete note</a></td>            
+        </tr>            
+        {% endfor %}
+        <tr><td colspan="4"><hr /></td></tr>
+        <tr>
+            <td colspan="3"><b>Total</b></td>            
+            {% comment %} <td>{{total.amount__sum}}</td> {% endcomment%} 
+            <td>{{ total }}€</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <a href='/'>Go to accounts</a> | 
+                <a href='{% url addnote account.id %}'>New note</a>
+            </td>
+        </tr>        
+    </table>
+{% endblock %}

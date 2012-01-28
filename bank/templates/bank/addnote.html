@@ -1,0 +1,17 @@
+{% extends "bank/base.html" %}
+{% block title %}Add note{% endblock %}
+{% block content %}
+    <h1>New note</h1>
+    {% if form.errors %}
+    <p class='red'>
+        Please correct the error{{ form.errors|pluralize }} below.
+    </p>
+    {% endif %} 
+    <form action='' method='post'>
+        <table>
+            {{form.as_table}}
+            {% csrf_token %}
+        </table>
+        <input type="submit" value="Add" />
+    </form>
+{% endblock %}
