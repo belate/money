@@ -20,20 +20,13 @@ def account(request, account_id):
 	return render(request, 'bank/account.html', {"notes": notes, "total": total, "account": account})
 
 def addaccount(request):
+	form = AddAccountForm(request.POST or None)
+	
 	if request.method == 'POST':
-		form = AddAccountForm(request.POST)
 		if form.is_valid():
-			cd = form.cleaned_data
-			account = Account(
-				number = cd['number'],
-				bank = cd['bank'],
-				balance = cd['balance'],
-				nominal = cd['nominal']
-			)
-			account.save()
+			form.save()
 			return HttpResponseRedirect(reverse('index'))
-	else:
-		form = AddAccountForm()
+			
 	return render(request, 'bank/addaccount.html', {'form': form})
 
 def addnote(request, account_id):
