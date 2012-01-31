@@ -1,5 +1,5 @@
 from django import forms
-from models import Account, Category
+from models import Account, Category, Note
 from datetime import datetime
 
 
@@ -9,6 +9,19 @@ class AddNoteForm(forms.Form):
 	description = forms.CharField(widget=forms.Textarea, max_length=100)
 	category =  forms.ModelChoiceField(queryset=Category.objects.all(), empty_label='')
 	account = forms.ModelChoiceField(queryset=Account.objects.all(), empty_label='')
+	
+	def save(self, account):
+		cd = self.cleaned_data
+		note = Note(
+				amount = cd['amount'],
+				timestamp = cd['timestamp'],
+				description = cd['description'],
+				category = cd['category'],
+				account = account
+				)
+		note.save()			
+		account.balance = account.balance + cd['amount']
+		account.save()
 
 
 class EditAccountForm(forms.Form):
