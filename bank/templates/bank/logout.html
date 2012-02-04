@@ -1,0 +1,10 @@
+{% extends "bank/base.html" %}
+{% load url from future %}
+
+{% block title %}Logout{% endblock %}
+
+{% block content %}
+    <h1>Logout user</h1>
+    You are logout of the application.
+    <a href='{% url 'index' %}'>Go to login</a>
+{% endblock %}

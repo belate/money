@@ -7,7 +7,7 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def index(request):
 	accounts = Account.objects.all()
 	return render(request, 'bank/index.html', {"accounts": accounts})
