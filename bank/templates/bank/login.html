@@ -9,7 +9,7 @@
     <p class="alert-error">Your username and password didn't match.<br />Please try again.</p>
     {% endif %}
     
-    <form method="post" action="{% url 'django.contrib.auth.views.login' %}">
+    <form class="form-inline" method="post" action="{% url 'django.contrib.auth.views.login' %}">
         {% csrf_token %}
     <table>
         <tr>
@@ -23,7 +23,7 @@
     </table>
     <div class="form-actions">
         <input class="btn btn-primary" type="submit" value="login" />
-        <input class="btn" onclick='{% url 'registration' %}' value="Registration" />
+        <a class="btn" href='{% url 'registration' %}'>Registration</a>
         <input type="hidden" name="next" value="{{ next }}" />
     </div>
     </form>

@@ -1,4 +1,4 @@
-{% extends "client/base.html" %}
+{% extends "bank/base.html" %}
 {% load url from future %}
 
 {% block title %}Registration of the new client{% endblock %}
@@ -9,14 +9,14 @@
         Please correct the error{{ form.errors|pluralize }} below.
     </p>
     {% endif %} 
-    <form class="form-horizontal" action="" method="post">
+    <form class="form-inline" action="" method="post">
         <table>
             {{form.as_table}}
             {% csrf_token %}
         </table>
         <div class="form-actions">
             <input class="btn btn-primary" type="submit" value="Check in" />
-            <input class="btn" type="reset" href='{% url 'registration' %}' value="Cancelar" />
+            <a class="btn" type="reset" href='{% url 'index' %}'>Cancelar </a>
         </div>
     </form>
 {% endblock %}

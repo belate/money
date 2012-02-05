@@ -32,7 +32,11 @@
             {% else %}
             <td class="alert-success">{{ note.amount }}€</td>
             {% endif %}
-            <td><a href='{% url delnote account.id note.id %}'>Delete note</a></td>            
+            <td>
+                <a class="btn btn-danger" href='{% url delnote account.id note.id %}'>
+                    <i class="icon-trash icon-white"></i>" Delete note"              
+                </a>
+            </td>            
         </tr>            
         {% endfor %}
         <tr>
