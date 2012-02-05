@@ -2,17 +2,17 @@
 {% block title %}Banks{% endblock %}
 {% block content %}
     <h1>My Accounts</h1>
-    <table>
-        <colgroup>
-            <col class='w200 center' />
-            <col class='w300 center' />
-            <col class='w100 center' />
-        </colgroup>
+    <br />
+    <hr>
+    <table class="table table-striped table-bordered">
+        <thead>
         <tr>
-            <td><b><u>Bank</u></b></td>
-            <td><b><u>Number</u></b></td>
-            <td><b><u>Balance</u></b></td>
+            <th>Bank</th>
+            <th>Number</th>
+            <th>Balance</th>
         </tr>
+        </thead>
+        <tbody>
         {% for account in accounts %}
         <tr>
             <td>{{account.bank}}</td>
@@ -22,12 +22,9 @@
             <td>{{account.balance}}€</td>
         </tr>        
         {% endfor %}
-        <tr><td colspan="4"><hr /></td></tr>
-        <tr>
-            <td><a href='/accounts/logout'>Logout</a></td>
-            <td><a href='/account/addaccount'>New account</a></td>
-            <td></td>
-            <td></td>
-        </tr>
+        </tbody>
     </table>
+    <hr>
+    <a class="btn btn-large btn-primary" href='/accounts/logout'>Logout</a>
+    <a class="btn btn-large btn-primary" href='/account/addaccount'>New account</a>
 {% endblock %}

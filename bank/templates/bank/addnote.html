@@ -3,15 +3,18 @@
 {% block content %}
     <h1>New note</h1>
     {% if form.errors %}
-    <p class='red'>
+    <p class="alert-error">
         Please correct the error{{ form.errors|pluralize }} below.
     </p>
     {% endif %} 
-    <form action='' method='post'>
+    <form class="form-horizontal" action="" method="post">
         <table>
             {{form.as_table}}
             {% csrf_token %}
         </table>
-        <input type="submit" value="Add" />
+        <div class="form-actions span2">
+            <input class="btn btn-primary" type="submit" value="Add" />
+            <input class="btn" type="reset" value="Cancelar" />
+        </div>
     </form>
 {% endblock %}

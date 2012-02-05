@@ -1,17 +1,22 @@
 {% extends "bank/base.html" %}
+{% load url from future %}
+
 {% block title %}Add account{% endblock %}
 {% block content %}
     <h1>New account</h1>
     {% if form.errors %}
-    <p class='red'>
+    <p class="alert-error">
         Please correct the error{{ form.errors|pluralize }} below.
     </p>
     {% endif %} 
-    <form action='' method='post'>
+    <form class="form-horizontal" action="" method="post">
         <table>
             {{form.as_table}}
             {% csrf_token %}
         </table>
-        <input type="submit" value="Add" />
+        <div class="form-actions">
+            <input class="btn btn-primary" type="submit" value="Add" />
+            <input class="btn" type="reset" onclick='{% url 'index' %}' value="Cancelar" />
+        </div>
     </form>
 {% endblock %}

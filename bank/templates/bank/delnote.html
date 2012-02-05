@@ -2,8 +2,11 @@
 {% block title %}Delete note{% endblock %}
 {% block content %}
     <h1>Delete note</h1>
-    <form action='' method='post'>
+    <form  class="form-horizontal" action="" method="post">
         {% csrf_token %}
-        <input type="submit" value="Delete" />
+        <div class="form-actions">
+            <input class="btn btn-primary" type="submit" value="Delete" />
+            <input class="btn" type="reset" value="Cancelar" />
+        </div>
     </form>
 {% endblock %}
