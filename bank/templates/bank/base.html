@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>{% block title %}My Money{% endblock %}</title>
-        <meta name="description" content="My first django project">
-        <meta name="author" content="Belatona">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}My Money{% endblock %}</title>
+    <meta name="description" content="My first django project">
+    <meta name="author" content="Belatona">
     <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css" type="text/css" charset="utf-8">
-    </head>
-    <body>
-        <div class="container">
-            {% block content %}{% endblock %}
-        </div>
-    </body>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/styles.css" type="text/css" charset="utf-8">
+</head>
+<body>
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+</body>
 </html>

@@ -1,30 +1,30 @@
 {% extends "bank/base.html" %}
 {% block title %}Banks{% endblock %}
 {% block content %}
-    <h1>My Accounts</h1>
-    <br />
-    <hr>
-    <table class="table table-striped table-bordered">
-        <thead>
-        <tr>
-            <th>Bank</th>
-            <th>Number</th>
-            <th>Balance</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for account in accounts %}
-        <tr>
-            <td>{{account.bank}}</td>
-            <td>
-                <a href='/account/{{account.id}}'>{{account.number}}</a>
-            </td>
-            <td>{{account.balance}}€</td>
-        </tr>        
-        {% endfor %}
-        </tbody>
-    </table>
-    <hr>
-    <a class="btn btn-large btn-primary" href='/accounts/logout'>Logout</a>
-    <a class="btn btn-large btn-primary" href='/account/addaccount'>New account</a>
+<h1>My Accounts</h1>
+<br/>
+<hr>
+<table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+        <th>Bank</th>
+        <th>Number</th>
+        <th>Balance</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for account in accounts %}
+    <tr>
+        <td>{{account.bank}}</td>
+        <td>
+            <a href='/account/{{account.id}}'>{{account.number}}</a>
+        </td>
+        <td>{{account.balance}}€</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<hr>
+<a class="btn btn-large btn-primary" href='/accounts/logout'>Logout</a>
+<a class="btn btn-large btn-primary" href='/account/addaccount'>New account</a>
 {% endblock %}
