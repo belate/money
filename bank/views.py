@@ -37,7 +37,7 @@ def addaccount(request):
 
 @login_required
 def addnote(request, account_id):
-    form = AddNoteForm(request.POST or None)
+    form = AddNoteForm(request.POST or None, user=request.user)
     if request.method == 'POST':
         account = Account.objects.get(id=account_id)
         if form.is_valid():
@@ -58,5 +58,3 @@ def delnote(request, account_id, note_id):
         return HttpResponseRedirect(reverse('account', args=[account_id]))
 
     return render(request, 'bank/delnote.html', {"note": note, "account": account})
-
-	

@@ -8,7 +8,13 @@ class AddNoteForm(forms.Form):
     timestamp = forms.DateTimeField(label='Timestamp', initial=datetime.now)
     description = forms.CharField(widget=forms.Textarea, max_length=100)
     category = forms.ModelChoiceField(queryset=Category.objects.all(), empty_label='')
-    account = forms.ModelChoiceField(queryset=Account.objects.all(), empty_label='')
+    account = forms.ModelChoiceField(queryset=None, empty_label='')
+
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user')
+        super(AddNoteForm, self).__init__(*args, **kwargs)
+        self.fields['account'].queryset = Account.objects.filter(user=user)
+
 
     def save(self, account):
         cd = self.cleaned_data
