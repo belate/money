@@ -1,19 +1,27 @@
 .W120 {
-    width: 120 !important;
+    width: 120px !important;
 }
 
 .W100 {
-    width: 100 !important;
+    width: 100px !important;
 }
 
 .W90 {
-    width: 90 !important;
+    width: 90px !important;
 }
 
 .W30 {
-    width: 30 !important;
+    width: 30px !important;
 }
 
 .W10 {
-    width: 10 !important;
+    width: 10px !important;
+}
+
+.expense{
+    color:#b94a48;
+}
+
+.deposit{
+    color: #468847;
 }

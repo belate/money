@@ -7,7 +7,7 @@
 <br/>
 <div>
     <form class="well form-search span5" action="" method="get">
-        <label>Look up note:</label>
+        <label>Search:</label>
         <input id="q" type="text" name="q" class="input-medium search-query"/>
         <input class="btn" type="submit" value="Go"/>
     </form>
@@ -30,11 +30,11 @@
                 <td class="W100">{{ note.category }}</td>
                 <td class="W120">{{ note.description }}</td>
                 {% if note.is_expense %}
-                <td class="alert-error">{{ note.amount }}€</td>
+                <td class="expense W30">{{ note.amount }}€</td>
                 {% else %}
-                <td class="alert-success">{{ note.amount }}€</td>
+                <td class="deposit W30">{{ note.amount }}€</td>
                 {% endif %}
-                <td style="width:30px;">
+                <td class="W10">
                     <a class="btn btn-danger" href='{% url delnote account.id note.id %}'>
                         <i class="icon-trash icon-white"></i>
                     </a>

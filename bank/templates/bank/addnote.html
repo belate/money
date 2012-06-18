@@ -8,10 +8,8 @@
 </p>
 {% endif %}
 <form class="form-horizontal" action="" method="post">
-    <table>
-        {{form.as_table}}
-        {% csrf_token %}
-    </table>
+    {{form.as_p}}
+    {% csrf_token %}
     <div class="form-actions span2">
         <input class="btn btn-primary" type="submit" value="Add"/>
         <input class="btn" type="reset" value="Cancelar"/>
