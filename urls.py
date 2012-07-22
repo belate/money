@@ -14,6 +14,7 @@ urlpatterns = patterns('',
 	url(r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': 'bank/login.html'}),
 	url(r'^accounts/login/registration/$', 'client.views.registration', name='registration'),
 	url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'template_name': 'bank/logout.html'}),
+	url(r'^accounts/addcategory/$', 'bank.views.addcategory', name = 'category-add'),
     # Examples:
     # url(r'^$', 'money.views.home', name='home'),
     # url(r'^money/', include('money.foo.urls')),

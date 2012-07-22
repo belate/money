@@ -7,12 +7,44 @@
     Please correct the error{{ form.errors|pluralize }} below.
 </p>
 {% endif %}
-<form class="form-horizontal" action="" method="post">
-    {{form.as_p}}
+<form ction="" method="post" class="form-horizontal">
+	<fieldset>
+		<div class="control-group">
+			<label class="control-label">{{ form.amount.label }}:</label>
+			<div class="controls">
+				{{ form.amount }}
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">{{ form.timestamp.label }}:</label>
+			<div class="controls">
+				{{ form.timestamp }}
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">{{ form.description.label }}:</label>
+			<div class="controls">
+				{{ form.description }}
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">{{ form.category.label }}:</label>
+			<div class="controls">
+				{{ form.category }}
+				<a class="btn" href="{% url category-add %}">+</a>
+			</div>			
+		</div>
+		<div class="control-group">
+			<label class="control-label">{{ form.account.label }}:</label>
+			<div class="controls">
+				{{ form.account }}
+			</div>
+		</div>
+		<div class="form-actions">
+			<input class="btn btn-primary" type="submit" value="Add" />
+			<a class="btn" href="{% url account account_id %}">Cancelar</a>
+		</div>
+	</fieldset>	
     {% csrf_token %}
-    <div class="form-actions span2">
-        <input class="btn btn-primary" type="submit" value="Add"/>
-        <input class="btn" type="reset" value="Cancelar"/>
-    </div>
 </form>
 {% endblock %}

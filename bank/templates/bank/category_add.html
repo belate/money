@@ -1,0 +1,23 @@
+{% extends "bank/base.html" %}
+{% block title %}New category{% endblock %}
+{% block content %}
+<br/>
+<h1>New category</h1>
+<br/>
+<hr>
+{% if form.errors %}
+<p class="alert-error">
+    Please correct the error{{ form.errors|pluralize }} below.
+</p>
+{% endif %}
+<form class="form-horizontal" action="" method="post">
+    <table>
+        {{form.as_table}}
+        {% csrf_token %}
+    </table>
+    <div class="form-actions">
+        <input class="btn btn-primary" type="submit" value="Add" />
+        <input class="btn" type="reset" onclick="{% url index %}" value="Cancelar" />
+    </div>
+</form>
+{% endblock %}

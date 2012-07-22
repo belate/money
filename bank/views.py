@@ -2,7 +2,7 @@ from django.shortcuts import render
 from models import Account, Note
 #from django.db.models import Sum
 from django.db.models import Q
-from forms import AddNoteForm, AddAccountForm
+from forms import AddNoteForm, AddAccountForm, AddCategoryForm
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
@@ -44,7 +44,7 @@ def addnote(request, account_id):
             form.save(account)
             return HttpResponseRedirect(reverse('account', args=[account_id]))
 
-    return render(request, 'bank/addnote.html', {'form': form})
+    return render(request, 'bank/addnote.html', {'form': form, "account_id": account_id})
 
 
 @login_required
@@ -58,3 +58,16 @@ def delnote(request, account_id, note_id):
         return HttpResponseRedirect(reverse('account', args=[account_id]))
 
     return render(request, 'bank/delnote.html', {"note": note, "account": account})
+
+
+@login_required
+def addcategory(request):
+    form = AddCategoryForm(request.POST or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('index'))
+
+    return render(request, 'bank/category_add.html', {'form': form})
+
+    

@@ -53,4 +53,13 @@ class AddAccountForm(forms.Form):
         )
         account.save()
 
+class AddCategoryForm(forms.Form):
+    name = forms.CharField(label='Name of the new category', max_length=50)
+
+    def save(self):
+        cd = self.cleaned_data
+        category = Category(
+            name=cd['name']
+        )
+        category.save()
 	
